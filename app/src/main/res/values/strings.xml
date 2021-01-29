@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AgePedia</string>
+    <string name="civ_bonus">Civ Bonus</string>
+    <string name="civ_units">Unique Units</string>
+    <string name="civ_techs">Unique Techs</string>
+    <string name="team_bonus">Team Bonus</string>
 </resources>

@@ -2,7 +2,10 @@ package me.lgcode.agepedia.ui
 
 import androidx.compose.ui.graphics.Color
 
-val purple200 = Color(0xFFBB86FC)
-val purple500 = Color(0xFF6200EE)
-val purple700 = Color(0xFF3700B3)
-val teal200 = Color(0xFF03DAC5)
+val amber = Color(0xFFFFC107)
+val grose = Color(0xFFFFF350)
+val darkGold = Color(0xC79100)
+
+val orange = Color(0xFF5722)
+val coral = Color(0xFF8A50)
+val red = Color(0xc41c00)
