@@ -14,10 +14,9 @@ class CivRepository(
     val ageService: AgeService
 ) {
 
-    fun getCivs(): DataSource.Factory<Int, CivEntity> {
-        val civs = civDao.getAll()
-        return civs
-    }
+    fun getCivs(): DataSource.Factory<Int, CivEntity> = civDao.getAll()
+
+    fun getCivsByName(query: String): DataSource.Factory<Int, CivEntity> = civDao.getByName(query)
 
     suspend fun updateCivs() {
         coroutineScope {

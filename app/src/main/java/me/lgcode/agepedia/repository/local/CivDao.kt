@@ -15,6 +15,9 @@ interface CivDao {
     @Query("SELECT * FROM civs WHERE id=:id")
     fun getOne(id: Int): CivEntity
 
+    @Query("SELECT * FROM civs WHERE name LIKE '%' || :name || '%'")
+    fun getByName(name: String): DataSource.Factory<Int, CivEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(civs: List<CivEntity>)
 

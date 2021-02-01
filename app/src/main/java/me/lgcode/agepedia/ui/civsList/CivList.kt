@@ -5,18 +5,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.HorizontalAlignmentLine
-import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 import me.lgcode.agepedia.R
@@ -26,14 +22,29 @@ import me.lgcode.agepedia.repository.local.CivEntity
 @Composable
 fun CivList(viewModel: CivsListViewModel) {
 
+    val query = viewModel.queryLiveData.observeAsState("")
     val civs = viewModel.civs().observeAsState(listOf())
 
-    LazyColumn() {
-        items(civs.value) { civ ->
-            CivCard(civ)
+    Column {
+        TopAppBar(contentColor = Color.Black) {
+            TextField(
+                    modifier = Modifier.fillMaxWidth(),
+                    value = query.value!!,
+                    onValueChange = { newQuery ->
+                        viewModel.updateQuery(newQuery)
+                    },
+                    label = {
+                        Text(stringResource(id = R.string.search))
+                    }
+            )
+        }
+
+        LazyColumn() {
+            items(civs.value) { civ ->
+                CivCard(civ)
+            }
         }
     }
-
 }
 
 @Composable

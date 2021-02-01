@@ -4,4 +4,6 @@
     <string name="civ_units">Unique Units</string>
     <string name="civ_techs">Unique Techs</string>
     <string name="team_bonus">Team Bonus</string>
+
+    <string name="search">Search</string>
 </resources>
