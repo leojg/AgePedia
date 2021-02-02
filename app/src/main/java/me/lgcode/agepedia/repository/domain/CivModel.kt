@@ -5,7 +5,7 @@ import me.lgcode.agepedia.repository.local.CivEntity
 interface CivModel {
     val id: Int
     val name: String
-    val expansion: String
+    val expansion: Expansion
     val type: String
     val uniqueUnits: List<String>
     val uniqueTechs: List<String>

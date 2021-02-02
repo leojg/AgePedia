@@ -1,6 +1,5 @@
 package me.lgcode.agepedia.ui.civsList
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import androidx.paging.LivePagedListBuilder

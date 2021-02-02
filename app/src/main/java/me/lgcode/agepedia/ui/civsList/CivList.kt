@@ -1,22 +1,25 @@
 package me.lgcode.agepedia.ui.civsList
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.loadImageResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 import me.lgcode.agepedia.R
 import me.lgcode.agepedia.repository.domain.CivModel
+import me.lgcode.agepedia.repository.domain.Expansion
 import me.lgcode.agepedia.repository.local.CivEntity
 
 @Composable
@@ -39,7 +42,7 @@ fun CivList(viewModel: CivsListViewModel) {
             )
         }
 
-        LazyColumn() {
+        LazyColumn {
             items(civs.value) { civ ->
                 CivCard(civ)
             }
@@ -64,11 +67,23 @@ fun CivCard(civ: CivModel) {
                         style = MaterialTheme.typography.h5,
                         modifier = Modifier.align(Alignment.CenterStart)
                 )
-                Text(
-                        text = civ.expansion,
-                        style = MaterialTheme.typography.subtitle1,
+
+                val icon = when(civ.expansion) {
+                    Expansion.AOK -> loadImageResource(id = R.drawable.aok)
+                    Expansion.AOC -> loadImageResource(id = R.drawable.aoc)
+                    Expansion.FORGOTTEN -> loadImageResource(id = R.drawable.forgotten)
+                    Expansion.RAJAS -> loadImageResource(id = R.drawable.rajas)
+                    Expansion.AFRICAN -> loadImageResource(id = R.drawable.african)
+                }
+
+                icon.resource.resource?.let {
+                    Image(
+                        bitmap = it,
+                        contentDescription = "",
                         modifier = Modifier.align(Alignment.CenterEnd).padding(PaddingValues(end = 5.dp))
-                )
+                    )
+                }
+
             }
             Text(
                     text = civ.type,
@@ -121,7 +136,7 @@ fun CivListPreview() {
             CivEntity(
                     1,
                     "pepes",
-                    "aok",
+                    Expansion.AOC,
                     "type",
                     listOf("civTechs1", "civTechs2"),
                     listOf("uniqueTechs1", "uniqueTechs2", "uniqueTechs3", "uniqueTechs4", "uniqueTechs5", "uniqueTechs6"),
@@ -131,7 +146,7 @@ fun CivListPreview() {
             CivEntity(
                     2,
                     "sepepe",
-                    "aok",
+                    Expansion.AFRICAN,
                     "epyt",
                     listOf("civTechs1", "civTechs2"),
                     listOf("uniqueTechs1", "uniqueTechs2"),

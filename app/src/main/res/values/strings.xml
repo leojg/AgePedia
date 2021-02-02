@@ -6,4 +6,9 @@
     <string name="team_bonus">Team Bonus</string>
 
     <string name="search">Search</string>
+
+    <string name="civ_list">Civs</string>
+    <string name="tech_list">Techs</string>
+
+    <string name="age">%s Age</string>
 </resources>

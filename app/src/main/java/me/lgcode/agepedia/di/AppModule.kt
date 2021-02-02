@@ -2,16 +2,18 @@ package me.lgcode.agepedia.di
 
 import android.content.Context
 import androidx.room.Room
-import com.squareup.picasso.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import me.lgcode.agepedia.repository.CivRepository
+import me.lgcode.agepedia.repository.TechRepository
 import me.lgcode.agepedia.repository.local.AgeDatabase
 import me.lgcode.agepedia.repository.local.CivDao
-import me.lgcode.agepedia.repository.remote.AgeService
+import me.lgcode.agepedia.repository.local.TechDao
+import me.lgcode.agepedia.repository.remote.CivService
+import me.lgcode.agepedia.repository.remote.TechService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -48,11 +50,21 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAgeService(retrofit: Retrofit) = retrofit.create(AgeService::class.java)
+    fun provideCivService(retrofit: Retrofit) = retrofit.create(CivService::class.java)
 
     @Provides
     @Singleton
-    fun provideCivRepository(civDao: CivDao, ageService: AgeService) = CivRepository(civDao, ageService)
+    fun provideCivRepository(civDao: CivDao, civService: CivService) = CivRepository(civDao, civService)
 
+    @Provides
+    @Singleton
+    fun provideTechDao(ageDatabase: AgeDatabase) = ageDatabase.techDao()
 
+    @Provides
+    @Singleton
+    fun provideTechService(retrofit: Retrofit) = retrofit.create(TechService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideTechRepository(techDao: TechDao, techService: TechService) = TechRepository(techDao, techService)
 }
