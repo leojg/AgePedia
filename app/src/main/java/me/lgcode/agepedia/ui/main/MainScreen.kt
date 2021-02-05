@@ -1,21 +1,19 @@
 package me.lgcode.agepedia.ui.main
 
-import android.net.Uri
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import me.lgcode.agepedia.ui.Screen
-import me.lgcode.agepedia.ui.civsList.CivList
-import me.lgcode.agepedia.ui.civsList.CivsListViewModel
-import me.lgcode.agepedia.ui.techList.TechList
-import me.lgcode.agepedia.ui.techList.TechsListViewModel
+import me.lgcode.agepedia.ui.civ.CivList
+import me.lgcode.agepedia.ui.civ.CivsListViewModel
+import me.lgcode.agepedia.ui.tech.TechList
+import me.lgcode.agepedia.ui.tech.TechsListViewModel
 
 @Composable
 fun MainScreen(

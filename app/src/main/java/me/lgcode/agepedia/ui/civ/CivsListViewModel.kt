@@ -1,4 +1,4 @@
-package me.lgcode.agepedia.ui.civsList
+package me.lgcode.agepedia.ui.civ
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*

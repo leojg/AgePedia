@@ -1,4 +1,4 @@
-package me.lgcode.agepedia.ui.techList
+package me.lgcode.agepedia.ui.tech
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData

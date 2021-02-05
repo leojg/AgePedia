@@ -4,6 +4,7 @@
     <string name="civ_units">Unique Units</string>
     <string name="civ_techs">Unique Techs</string>
     <string name="team_bonus">Team Bonus</string>
+    <string name="build_time">Build Time</string>
 
     <string name="search">Search</string>
 
@@ -11,4 +12,9 @@
     <string name="tech_list">Techs</string>
 
     <string name="age">%s Age</string>
+
+    <string name="food">Food</string>
+    <string name="wood">Wood</string>
+    <string name="stone">Stone</string>
+    <string name="gold">Gold</string>
 </resources>

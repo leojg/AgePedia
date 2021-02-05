@@ -3,14 +3,11 @@ package me.lgcode.agepedia.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.ui.platform.setContent
 import dagger.hilt.android.AndroidEntryPoint
-import me.lgcode.agepedia.ui.civsList.CivList
-import me.lgcode.agepedia.ui.civsList.CivsListViewModel
+import me.lgcode.agepedia.ui.civ.CivsListViewModel
 import me.lgcode.agepedia.ui.main.MainScreen
-import me.lgcode.agepedia.ui.techList.TechsListViewModel
+import me.lgcode.agepedia.ui.tech.TechsListViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
