@@ -1,26 +1,20 @@
 package me.lgcode.agepedia.ui.tech
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import kotlinx.coroutines.launch
 import me.lgcode.agepedia.repository.TechRepository
+import me.lgcode.agepedia.repository.domain.TechModel
+import me.lgcode.agepedia.repository.local.TechEntity
+import me.lgcode.agepedia.ui.BaseViewModel
 
 class TechsListViewModel @ViewModelInject constructor(
     val techRepository: TechRepository
-): ViewModel() {
-    val queryLiveData = MutableLiveData("")
+): BaseViewModel<TechEntity>() {
 
-    private val config = PagedList.Config.Builder()
-        .setEnablePlaceholders(true)
-        .setPageSize(15)
-        .build()
-
-    private val techsLiveData = Transformations.switchMap(queryLiveData) {
+    override val resultsLiveData = Transformations.switchMap(queryLiveData) {
         if (it.isNullOrEmpty()) {
             LivePagedListBuilder(techRepository.getTechs(), config).build()
         } else {
@@ -28,16 +22,11 @@ class TechsListViewModel @ViewModelInject constructor(
         }
     }
 
-    fun techs() = techsLiveData
-
-    fun fetchTechs() {
+    override fun fetchResults() {
         viewModelScope.launch {
-            techRepository.updateTechs()
+            techRepository.getTechs()
         }
     }
 
-    fun updateQuery(query: String) {
-        queryLiveData.postValue(query)
-    }
 
 }

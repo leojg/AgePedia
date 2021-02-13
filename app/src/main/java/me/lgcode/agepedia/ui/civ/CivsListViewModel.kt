@@ -6,19 +6,14 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import kotlinx.coroutines.launch
 import me.lgcode.agepedia.repository.CivRepository
+import me.lgcode.agepedia.repository.local.CivEntity
+import me.lgcode.agepedia.ui.BaseViewModel
 
 class CivsListViewModel @ViewModelInject constructor(
     val civRepository: CivRepository
-): ViewModel() {
+): BaseViewModel<CivEntity>() {
 
-    val queryLiveData = MutableLiveData("")
-
-    private val config = PagedList.Config.Builder()
-        .setEnablePlaceholders(true)
-        .setPageSize(15)
-        .build()
-
-    private val civsLiveData = Transformations.switchMap(queryLiveData) {
+    override val resultsLiveData = Transformations.switchMap(queryLiveData) {
         if (it.isNullOrEmpty()) {
             LivePagedListBuilder(civRepository.getCivs(), config).build()
         } else {
@@ -26,16 +21,10 @@ class CivsListViewModel @ViewModelInject constructor(
         }
     }
 
-    fun civs() = civsLiveData
-
-    fun fetchCivs() {
+    override fun fetchResults() {
         viewModelScope.launch {
             civRepository.updateCivs()
         }
-    }
-
-    fun updateQuery(query: String) {
-        queryLiveData.postValue(query)
     }
 
 }

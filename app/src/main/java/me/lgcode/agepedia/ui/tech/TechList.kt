@@ -18,7 +18,7 @@ import me.lgcode.agepedia.repository.domain.TechModel
 fun TechList(viewModel: TechsListViewModel) {
 
     val query = viewModel.queryLiveData.observeAsState("")
-    val civs = viewModel.techs().observeAsState(listOf())
+    val civs = viewModel.results().observeAsState(listOf())
 
     Column {
         TopAppBar(contentColor = Color.Black) {

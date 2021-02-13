@@ -18,7 +18,7 @@ import me.lgcode.agepedia.repository.domain.CivModel
 fun CivList(viewModel: CivsListViewModel) {
 
     val query = viewModel.queryLiveData.observeAsState("")
-    val civs = viewModel.civs().observeAsState(listOf())
+    val civs = viewModel.results().observeAsState(listOf())
 
     Column {
         TopAppBar(contentColor = Color.Black) {

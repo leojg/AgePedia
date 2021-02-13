@@ -1,21 +1,19 @@
-package me.lgcode.agepedia.ui
+package me.lgcode.agepedia.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val PrimaryColorPalette = lightColors(
-        primary = amber,
-        primaryVariant = grose,
+        primary = indigo,
+        primaryVariant = darkindigo,
         secondary = orange,
         secondaryVariant = coral,
         background = Color.White,
-        surface = Color.LightGray,
-        onSurface = amber,
+        surface = lightgary,
+        onSurface = black,
         onError = red
 )
 
