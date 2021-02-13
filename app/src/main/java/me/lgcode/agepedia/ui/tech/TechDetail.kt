@@ -29,7 +29,6 @@ fun TechDetailComponent(tech: TechModel) {
 
     Card(
             shape = RoundedCornerShape(8.dp),
-            contentColor = Color.Black,
             modifier = modifier
     ) {
         Column(modifier = Modifier.padding(5.dp)) {

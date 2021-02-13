@@ -8,6 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.lgcode.agepedia.ui.civ.CivsListViewModel
 import me.lgcode.agepedia.ui.main.MainScreen
 import me.lgcode.agepedia.ui.tech.TechsListViewModel
+import me.lgcode.agepedia.ui.theme.AgePediaTheme
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

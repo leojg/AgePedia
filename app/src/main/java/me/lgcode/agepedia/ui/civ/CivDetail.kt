@@ -54,11 +54,9 @@ fun CivDetailComponent(civ: CivModel) {
                 modifier = Modifier.padding(PaddingValues(top = 5.dp, bottom = 5.dp))
         )
 
-        Column(modifier = Modifier.background(MaterialTheme.colors.onSurface, RoundedCornerShape(8.dp))) {
-            CivCardInnerRow(stringResource(R.string.civ_bonus), civ.civBonus)
-            CivCardInnerRow(stringResource(R.string.civ_units), civ.uniqueUnits)
-            CivCardInnerRow(stringResource(R.string.civ_techs), civ.uniqueTechs)
-        }
+        CivCardInnerRow(stringResource(R.string.civ_bonus), civ.civBonus)
+        CivCardInnerRow(stringResource(R.string.civ_units), civ.uniqueUnits)
+        CivCardInnerRow(stringResource(R.string.civ_techs), civ.uniqueTechs)
 
         SimpleLabeledTextComponent(stringResource(R.string.team_bonus), civ.teamBonus)
 

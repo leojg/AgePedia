@@ -21,7 +21,7 @@ fun CivList(viewModel: CivsListViewModel) {
     val civs = viewModel.civs().observeAsState(listOf())
 
     Column {
-        TopAppBar(contentColor = Color.Black) {
+        TopAppBar {
             TextField(
                     modifier = Modifier.fillMaxWidth(),
                     value = query.value!!,
@@ -49,7 +49,6 @@ fun CivCard(civ: CivModel) {
 
     Card(
             shape = RoundedCornerShape(8.dp),
-            contentColor = Color.Black,
             modifier = modifier
     ) {
         CivDetailComponent(civ)

@@ -21,7 +21,7 @@ fun TechList(viewModel: TechsListViewModel) {
     val civs = viewModel.techs().observeAsState(listOf())
 
     Column {
-        TopAppBar(contentColor = Color.Black) {
+        TopAppBar {
             TextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = query.value!!,
@@ -49,7 +49,6 @@ fun TechCard(tech: TechModel) {
 
     Card(
         shape = RoundedCornerShape(8.dp),
-        contentColor = Color.Black,
         modifier = modifier
     ) {
         TechDetailComponent(tech = tech)

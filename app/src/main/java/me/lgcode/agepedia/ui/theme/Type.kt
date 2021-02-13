@@ -1,4 +1,4 @@
-package me.lgcode.agepedia.ui
+package me.lgcode.agepedia.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
