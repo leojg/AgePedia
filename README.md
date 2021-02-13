@@ -1,4 +1,4 @@
-#AgePedia
+# AgePedia
 
 **AgePedia is a showcase app built using Jetpack Compose, MVVM and Repository patterns.**
 
@@ -8,12 +8,12 @@ It uses the age of empires api by [aalises](https://github.com/aalises) which ca
 
 ---
 
-##Current features:
+## Current features:
 
 - Civilizations list.
 - Technologies list.
 
-##Upcoming features:
+## Upcoming features:
 
 - Details for each entitiy(civs, tech, units, buildings)
 - Units list.
